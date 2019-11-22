@@ -31,8 +31,10 @@ $(document).ready(function() {
     function getElements(response) {
       console.log(response);
       for (let i = 0; i < response.data.length; i++) {
-        for (let j = 0; j < response.data[i].specialties.length; i++) {
-          $(".results").append("<ul>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name + "<li>" + response.data[i].specialties[j].uid + "</li>");
+          $(".results").append("<ul id='docNames" + i + "'>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name);
+        console.log(response.data[2]);
+        for (let j = 0; j < response.data[i].specialties.length; j++) {
+          $("#docNames" + i).append("<li>" + response.data[i].specialties[j].uid + "</li>");
         }
 
       }
