@@ -9,7 +9,7 @@ $(document).ready(function() {
 
   (async () => {
     let newDoc = new Doctor();
-    const response = await newDoc.getDoctorBySymptom("rash");
+    const response = await newDoc.getDoctorByName("Cat");
     getElements(response);
   })();
 
@@ -18,7 +18,8 @@ $(document).ready(function() {
     let resultArray = [];
     for (let i = 0; i < response.data.length; i++) {
       resultArray.push(response.data[i].profile.first_name);
-      $(".results").text(resultArray);
+      resultArray.push(response.data[i].profile.last_name);
+      $(".results").append("<br>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name + "<br>");
     }
 
   }
