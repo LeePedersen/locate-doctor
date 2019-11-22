@@ -20,9 +20,10 @@ _No known bugs_
 
 ## Specs
 
-_The program reads toppings input from checkboxes into an array in a Pizza object and returns that array_<br>
-_Input: "jalapenos"_<br>
-_Output: "jalapenos"_<br>
+| Spec | Output | Input |
+||||
+| Program reads one-word input medical symptom and returns a list of doctors | "rash" | Dr. Whoever, Dr. Theotherone |
+| Program reads name and returns a list of doctors | Dr. Who | Dr. H. Who, Dr F. Who |
 
 ## Support and Contact Details
 _For issues contact support@leepedersen.com_
