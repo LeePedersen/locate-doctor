@@ -9,12 +9,18 @@ $(document).ready(function() {
 
   (async () => {
     let newDoc = new Doctor();
-    const response = await newDoc.getDoctorBySymptom("cough");
+    const response = await newDoc.getDoctorBySymptom("rash");
     getElements(response);
   })();
 
   function getElements(response) {
     console.log(response);
+    let resultArray = [];
+    for (let i = 0; i < response.data.length; i++) {
+      resultArray.push(response.data[i].profile.first_name);
+      $(".results").text(resultArray);
+    }
+
   }
 
 });
