@@ -4,8 +4,18 @@
     <title>locate-doctor</title>
   </head>
   <body>
-    <div>
-      <p class="results"></p>
+    <div class="container">
+      <form class="parameters">
+        <label for="name">Search by name:</label>
+        <input type="text" id="name">
+        <button type="button" id="nameInput">Submit</button>
+        <br>
+        <label for="name">Search by symptom:</label>
+        <input type="text" id="symptom">
+        <button type="button" id="symptomInput">Submit</button>
+      </form>
+      <div class="results">
+      </div>
     </div>
   </body>
 </html>

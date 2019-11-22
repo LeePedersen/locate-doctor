@@ -10,5 +10,3 @@ export class Doctor {
     return jsonifiedResponse;
   }
 }
-
-// (`https://api.betterdoctor.com/2016-03-01/doctors?location=45.505,-122.675,100&skip=2&limit=10&user_key=4673d02a855d648150ab936ef94c04a7`);
