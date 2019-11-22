@@ -18,7 +18,8 @@ $(document).ready(function() {
       console.log(response);
       for (var i = 0; i < response.data.length; i++) {
         let newInfo = new Info(response.data[i]);
-        console.log(newInfo);
+        $(".results").append("<h3>" + newInfo.name + "</h3><p>" + newInfo.practiceName + "</p>" + newInfo.address + "</p><br>");
+        console.log(newInfo.address);
       }
       // for (let i = 0; i < response.data.length; i++) {
       //   $(".results").append("<ul>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name);
