@@ -21,9 +21,13 @@ _No known bugs_
 ## Specs
 
 | Spec | Output | Input |
-||||
+| --- | --- | --- |
 | Program reads one-word input medical symptom and returns a list of doctors | "rash" | Dr. Whoever, Dr. Theotherone |
 | Program reads name and returns a list of doctors | Dr. Who | Dr. H. Who, Dr F. Who |
+| Program returns first name, last name, address, phone number, website and whether or not the doctor is accepting new patients | Dr. Who | Albert Who, 123 Whatsit St., 123-456-7890, https://www.drwho.com, no |
+| If the API call results in an error, the program returns a notification stating what the error is. | status: not 200 | |
+| If no search results, program returns message | Dr whooo | Dr. Whooo does not exist |
+| Program handles multiple word input | rash on my head | Dr. Whoever, Dr. Theotherone |
 
 ## Support and Contact Details
 _For issues contact support@leepedersen.com_
