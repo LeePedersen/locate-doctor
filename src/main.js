@@ -4,12 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
 $(document).ready(function() {
-  let city = $('#location').val();
-  $('#location').val("");
+  console.log("at least this is working");
 
   let promise = new Promise(function(resolve, reject) {
     let request = new XMLHttpRequest();
-    let url = `https://api.betterdoctor.com/2016-03-01/doctors?location=37.773,-122.413,100&skip=2&limit=10&user_key=${process.}`;
+    let url = `https://api.betterdoctor.com/2016-03-01/doctors?location=37.773,-122.413,100&skip=2&limit=10&user_key=${process.env.API_KEY}`;
     request.onload = function() {
       if (this.status === 200) {
         resolve(request.response);
@@ -23,8 +22,9 @@ $(document).ready(function() {
 
   promise.then(function(response) {
     let body = JSON.parse(response);
-    $('.showHumidity').text(`The humidity in ${city} is ${body.main.humidity}%`);
-    $('.showTemp').text(`The temperature in Kelvins is ${body.main.temp} degrees.`);
+    console.log(body);
+    // $('.showHumidity').text(`The humidity in ${city} is ${body.main.humidity}%`);
+    // $('.showTemp').text(`The temperature in Kelvins is ${body.main.temp} degrees.`);
   }, function(error) {
     $('.showErrors').text(`There was an error processing your request: ${error.message}`);
   });
