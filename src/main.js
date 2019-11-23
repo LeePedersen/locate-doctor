@@ -9,51 +9,50 @@ $(document).ready(function() {
 
   $("#nameInput").click(function() {
     $(".results").empty();
-    if (!$("#name").val()) {
-      $(".results").append("Please enter a name")
-    } else {
-      (async () => {
-        let newDoc = new Doctor();
-        if (newDoc.errorMessage) {
-          $(".results").append(newDoc.errorMessage);
-        }
-        const response = await newDoc.getDoctorByName($("#name").val());
-        getElements(response);
-      })();
+    (async () => {
+      let newDoc = new Doctor();
+      if (newDoc.errorMessage) {
+        $(".results").append(newDoc.errorMessage);
+      }
+      const response = await newDoc.getDoctorByName($("#name").val());
+      getElements(response);
+    })();
 
-      function getElements(response) {
+    function getElements(response) {
+      if (response.data.length > 0) {
         for (var i = 0; i < response.data.length; i++) {
           let newInfo = new Info(response.data[i]);
           newInfo.checkIfAcceptingNew();
           newInfo.checkIfHasWebsite();
           $(".results").append("<h3>" + newInfo.name + "</h3><p>" + newInfo.practiceName + "</p><p>" + newInfo.address + "</p><p>" + newInfo.number + "</p><p>" + newInfo.accepting + "</p><p>" + newInfo.website + "</p><br>");
         }
+      } else {
+        $(".results").append("Sorry, no doctors match your criteria");
       }
     }
   });
 
   $("#symptomInput").click(function() {
     $(".results").empty();
-    if (!$("#symptom").val()) {
-      $(".results").append("Please enter a symptom")
-    } else {
-      (async () => {
-        let notherNewDoc = new Doctor();
-        if (notherNewDoc.errorMessage) {
-          $(".results").append(notherNewDoc.errorMessage);
-        }
-        const response = await notherNewDoc.getDoctorBySymptom($("#symptom").val());
-        getElements(response);
-      })();
+    (async () => {
+      let notherNewDoc = new Doctor();
+      if (notherNewDoc.errorMessage) {
+        $(".results").append(notherNewDoc.errorMessage);
+      }
+      const response = await notherNewDoc.getDoctorBySymptom($("#symptom").val());
+      getElements(response);
+    })();
 
-      function getElements(response) {
+    function getElements(response) {
+      if (response.data.length > 0) {
         for (let i = 0; i < response.data.length; i++) {
           let newInfo = new Info(response.data[i]);
           newInfo.checkIfAcceptingNew();
           newInfo.checkIfHasWebsite();
           $(".results").append("<h3>" + newInfo.name + "</h3><p>" + newInfo.practiceName + "</p><p>" + newInfo.address + "</p><p>" + newInfo.number + "</p><p>" + newInfo.accepting + "</p><p>" + newInfo.website + "</p><br>");
-
         }
+      } else {
+        $(".results").append("Sorry, no doctors match your criteria");
       }
     }
   });
