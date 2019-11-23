@@ -11,6 +11,7 @@ $(document).ready(function() {
     $(".results").empty();
     (async () => {
       let newDoc = new Doctor();
+      console.log(newDoc.errorMessage);
       if (newDoc.errorMessage) {
         $(".results").append(newDoc.errorMessage);
       }
