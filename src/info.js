@@ -21,7 +21,3 @@ export class Info {
     }
   }
 }
-
-// for (var i = 0; i < this.doctor.practices.length; i++) {
-//   docInfo.push("<br>Practice " + (i + 1) + ": " + this.doctor.practices[0].name + "<br>");
-// }
