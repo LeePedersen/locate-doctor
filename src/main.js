@@ -8,6 +8,7 @@ import { Info } from './../src/info.js';
 $(document).ready(function() {
 
   $("#nameInput").click(function() {
+    $(".results").empty();
     (async () => {
       let newDoc = new Doctor();
       const response = await newDoc.getDoctorByName($("#name").val());
@@ -15,19 +16,17 @@ $(document).ready(function() {
     })();
 
     function getElements(response) {
-      console.log(response);
       for (var i = 0; i < response.data.length; i++) {
         let newInfo = new Info(response.data[i]);
-        $(".results").append("<h3>" + newInfo.name + "</h3><p>" + newInfo.practiceName + "</p>" + newInfo.address + "</p><br>");
-        console.log(newInfo.address);
+        newInfo.checkIfAcceptingNew();
+        newInfo.checkIfHasWebsite();
+        $(".results").append("<h3>" + newInfo.name + "</h3><p>" + newInfo.practiceName + "</p><p>" + newInfo.address + "</p><p>" + newInfo.number + "</p><p>" + newInfo.accepting + "</p><p>" + newInfo.website + "</p><br>");
       }
-      // for (let i = 0; i < response.data.length; i++) {
-      //   $(".results").append("<ul>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name);
-      // }
     }
   });
 
   $("#symptomInput").click(function() {
+    $(".results").empty();
     (async () => {
       let notherNewDoc = new Doctor();
       const response = await notherNewDoc.getDoctorBySymptom($("#symptom").val());
@@ -35,27 +34,11 @@ $(document).ready(function() {
     })();
 
     function getElements(response) {
-      console.log(response);
       for (let i = 0; i < response.data.length; i++) {
-          $(".results").append("<ul>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name + "<p id='docNames" + i + "'> Specialties: </p><p id='address" + i + "'> Address: </p><p id='phoneNumber" + i + "'> Phone Number: </p><p id='accepting" + i + "'> Accepting Patients: </p><p id='website" + i + "'> Website: </p>" );
-
-        console.log(response.data[2]);
-        for (let j = 0; j < response.data[i].specialties.length; j++) {
-          let specialties = response.data[i].specialties[j].uid.replace(/-/g, " ");
-          $("#docNames" + i).append("<li>" + specialties + "</li>");
-        }
-        for (let j = 0; j < response.data[i].specialties.length; j++) {
-          let specialties = response.data[i].specialties[j].uid.replace(/-/g, " ");
-          $("#docNames" + i).append("<li>" + specialties + "</li>");
-        }
-        for (let j = 0; j < response.data[i].specialties.length; j++) {
-          let specialties = response.data[i].specialties[j].uid.replace(/-/g, " ");
-          $("#docNames" + i).append("<li>" + specialties + "</li>");
-        }
-        for (let j = 0; j < response.data[i].specialties.length; j++) {
-          let specialties = response.data[i].specialties[j].uid.replace(/-/g, " ");
-          $("#docNames" + i).append("<li>" + specialties + "</li>");
-        }
+        let newInfo = new Info(response.data[i]);
+        newInfo.checkIfAcceptingNew();
+        newInfo.checkIfHasWebsite();
+        $(".results").append("<h3>" + newInfo.name + "</h3><p>" + newInfo.practiceName + "</p><p>" + newInfo.address + "</p><p>" + newInfo.number + "</p><p>" + newInfo.accepting + "</p><p>" + newInfo.website + "</p><br>");
 
       }
     }
