@@ -5,7 +5,8 @@ export class Doctor {
       let jsonifiedResponse = await response.json();
       return jsonifiedResponse;
     } catch(error) {
-      console.error("There was an error handling your request: " + error.message);
+      let errorMessage = ("There was an error handling your request: " + error.message);
+      this.errorMessage = errorMessage;
     }
   }
   async getDoctorBySymptom(symptom) {
@@ -14,7 +15,8 @@ export class Doctor {
       let jsonifiedResponse = await response.json();
       return jsonifiedResponse;
     } catch(error) {
-      console.error("There was an error handling your request: " + error.message);
+      let errorMessage = ("There was an error handling your request: " + error.message);
+      this.errorMessage = errorMessage;
     }
   }
 }
