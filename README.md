@@ -1,5 +1,5 @@
-# _Doctor Location_
-#### _Site for finding Portland doctors based on name and symptoms_
+# Doctor Location
+#### Site for finding Portland doctors based on name and symptoms
 
 #### _Lee Pedersen_
 
@@ -12,10 +12,13 @@ _No known bugs_
 
 ## Setup
 * Clone site to your machine
+* Go to [Better Doctor API][2] and create an api key
+* Create a .env file and enter the api key in this format: API_KEY = [your api key]
 * Make sure node.js is installed on your system
-* Install npm
-* Run `npm run build`
-* Navigate to the ./dist folder and open index.html in your browser
+* Run `npm install`
+* Run `npm run start`
+
+[2]: https://developer.betterdoctor.com/
 
 ## Specs
 
